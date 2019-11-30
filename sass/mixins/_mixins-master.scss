@@ -1,0 +1,57 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+
+@mixin for-size($size) {
+	@if $size == phone-only {
+		@media only screen 
+		and (min-device-width : 414px) 
+		and (max-device-width : 736px){@content;}
+	} @else if($size == iphonex-landscape){
+		@media only screen 
+		and (min-device-width : 414px) 
+		and (max-device-width : 736px) 
+		and (orientation : landscape){@content;}
+	} @else if ($size == ipad-portrait){
+		@media only screen 
+		and (min-device-width : 768px) 
+		and (max-device-width : 1024px) 
+		and (orientation : portrait) {@content;}
+	} @else if ($size == ipad-landscape){
+		@media only screen 
+		and (min-device-width : 768px) 
+		and (max-device-width : 1024px) 
+		and (orientation : landscape) {@content;}
+	} @else if $size == desktop-up {
+	  @media (min-width: 1200px) { @content; }
+	} @else if $size == big-desktop-up {
+	  @media (min-width: 1800px) { @content; }
+	}
+}

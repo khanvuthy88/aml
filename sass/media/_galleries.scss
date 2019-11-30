@@ -1,0 +1,77 @@
+@import "../variables-site/variables-site";
+@import "../mixins/mixins-master";
+
+%gallery-item{
+	display: grid;
+    align-content: center;
+	grid-gap: 15px;
+}
+
+.page-scope-of-supply{
+	.gallery{
+		@extend %gallery-item;
+		grid-template-columns: auto auto;
+	}
+}
+.page-principals-and-partners{
+	.gallery{
+		@extend %gallery-item;
+		@include for-size(phone-only){
+			grid-template-columns: auto auto;
+		}
+
+		@include for-size(desktop-up){
+			grid-template-columns: auto auto auto auto;
+		}
+		.gallery-item{
+			padding: 0px;
+			.gallery-icon{
+				padding: 15px;
+				border-bottom: 1px solid $aml_color_primary;
+			}
+			.gallery-caption{
+				a{
+					text-decoration: none;
+					color: $aml_color_gray;
+				}
+			}
+		}
+	}
+}
+
+.gallery {	
+	figure{
+		margin: 0px;
+	}
+}
+
+.gallery-item {
+	border: 1px solid #1579bd;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+	border-radius: 5px;
+	width: 100%;	
+	.gallery-icon{
+		img{
+			width: 100%;
+		}
+	}
+	// Loops to enumerate the classes for gallery columns.
+	// @for $i from 2 through 9 {
+	// 	.gallery-columns-#{$i} & {
+	// 		max-width: map-get( $columns, $i );
+	// 	}
+	// }
+}
+
+.gallery-caption {
+	display: block;
+	padding: 10px;
+	font-size: 17px;
+	a{
+		display: block;
+		font-size: 17px;
+	}
+}
+

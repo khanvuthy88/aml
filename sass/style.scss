@@ -1,0 +1,855 @@
+/*!
+Theme Name: AML Global
+Theme URI: http://underscores.me/
+Author: Khan Vuthy
+Author URI: https://plus.google.com/u/0/113587414402501665542
+Description: AMG Global theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: aml-global
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+AML Global is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@import "elements/elements";
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+@import "forms/forms";
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@import "navigation/navigation";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+@import "modules/alignments";
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+@import "modules/clearings";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "site/site";
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+@import "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "media/media";
+
+%button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container{
+	min-width: 240px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+	@include for-size(phone-only){
+		min-width: 240px;
+	    position: relative;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	@include for-size(desktop-up){
+		max-width: 1170px;
+	}	    
+}
+.mini-head{
+	background-color: $aml_color_primary;
+	color: #fff;
+	width: 100%;
+	padding: 10px 0px;
+	max-height: 58px;
+	.block{
+		@include for-size(phone-only){
+			width: 90%;
+			margin: auto;
+			display: block;
+		}
+		@include for-size(iphonex-landscape){
+			width: 100%;
+			padding:0px 15px;
+			display: flex;
+		}
+		display: flex;
+		justify-content: space-between;
+		ul{
+			&.short-contact-info{
+				@include for-size(phone-only){
+					overflow-x: auto;
+				    overflow-y: hidden;
+				    white-space: nowrap;
+				}
+				margin: 0px;
+				padding: 0px;
+				li{
+					list-style: none;
+					display: inline;
+					&.phone{
+						margin-right: 30px;
+						&:before{
+							background: url("images/whatsapp.svg");
+							background-size: 24px;
+							background-repeat: no-repeat;
+						}
+					}
+					&.email{
+						&:before{
+							background: url("images/chat-comment-oval-speech-bubble-with-text-lines.svg");
+							background-size: 26px;
+							background-repeat: no-repeat;
+						}
+					}					
+					span{
+						@include for-size(phone-only){
+							margin-left: 0px;
+						}
+						@include for-size(iphonex-landscape){
+							margin-left: 32px;
+						}
+						margin-left: 32px;
+						padding-top: 5px;
+						font-size: 12px;
+					}
+				}
+			}
+			&.social-media{
+				@include for-size(phone-only){
+					display: none;
+				}
+				@include for-size(iphonex-landscape){
+					display: block;
+				}
+				margin: 0px;
+				padding:0px;
+				li{
+					list-style: none;
+					display: inline;
+					&.facebook{
+						span{
+							background: url("images/whatsapp.svg");
+							background-size: 26px;
+							background-repeat: no-repeat;
+							content: '';						
+							width: 28px;
+						    height: 26px;
+						    position: absolute;	
+						}
+					}
+					&.search{
+						img{
+							&.mini_search{
+								width: 24px;
+							}
+						}
+						.top-search{
+							right: 0px;
+							left: auto;
+							transition: all .4s ease;
+    						pointer-events: none;
+    						top: 100%;
+    						position: absolute;
+    						z-index: 9;
+    						.inner{
+							    margin-left: auto;
+							    margin-right: 0;
+							    box-shadow: 0px 3px 6px 0px rgba(0,0,0,.2);
+							    position: relative;
+							    pointer-events:all;
+							    form{
+							    	padding: 30px;
+    								border-width: 0;
+    								position:relative;
+    								border-style: solid;
+								    border-color: #4db2ec;
+								    pointer-events: auto;
+								   	&:before{
+										content: '';
+										position: absolute;
+										top: 0;
+										left: 0;
+										width: 100%;
+										height: 100%;
+										background-color: #fff;
+								   	}
+								   	.search-form-inner{
+										position: relative;
+										display: flex;
+										background-color: #fff;
+										min-width: 600px;
+										.search-form-input{
+											color: #444;
+										    flex: 1;
+										    background-color: transparent;
+										    border: 0;
+										    height: auto;
+    										min-height: 32px;
+										}
+										input[type=text]{
+											font-size: 12px;
+										    line-height: 21px;
+										    color: #444;
+										    border: 1px solid #e1e1e1;
+										    width: 100%;
+										    max-width: 100%;
+										    height: 34px;
+										    padding: 3px 9px;
+										}
+										.search-btn{
+											padding: 0;
+										    color: #000;
+										    background-color: rgba(0,0,0,0);
+										}
+										.search-form-btn{
+											margin-bottom: 0;
+										    padding: 0 15px;
+										    background-color: #222;
+										    font-size: 13px;
+										    font-weight: 500;
+										    color: #fff;
+										    -webkit-transition: all .3s ease;
+										    transition: all .3s ease;
+										    z-index: 1;
+										    span{
+										    	display: inline-block;
+    											vertical-align: middle;
+										    }
+										}
+										&:after{
+											content: '';
+										    position: absolute;
+										    top: 0;
+										    left: 0;
+										    width: 100%;
+										    height: 100%;
+										    border: 1px solid #e1e1e1;
+										    pointer-events: none;
+											border-width: 0 0 1px;
+										}
+								   	}
+							    }
+    						}
+						}
+					}
+					a{
+						img{
+							width: 24px;
+						}
+					}
+				}
+			}
+			li{
+				&:before{
+					@include for-size(desktop-up){
+						content: '';						
+						width: 28px;
+					    height: 26px;
+					    position: absolute;			
+					}		    
+					@include for-size(iphonex-landscape){
+						content: '';						
+						width: 28px;
+					    height: 26px;
+					    position: absolute;	
+					}					    
+				}
+			}
+		}
+	}
+}
+#masthead{
+	width: 100%;
+	height: auto;
+	margin: auto;
+	padding:10px 0px;
+	@include for-size(phone-only){
+		margin-bottom: 12px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid $aml_color_primary;
+	}
+	.container{
+		@include for-size(phone-only){
+			display:flex;
+			.site-branding{
+				width: 100%;
+				padding-left: 15px;
+			}
+		}
+	}
+	.site-branding{
+		@include for-size(phone-only){
+			width:90%;
+			margin: auto;
+		}
+		@include for-size(desktop-up){
+			float: left;
+			display: flex;
+		}
+		a{
+			&.custom-logo-link{
+				@include for-size(phone-only){
+					display: none;
+				}
+			}
+			img{
+				@include for-size(phone-only){
+					display: none;
+				}
+				@include for-size(desktop-up){
+					width: 216px;
+				}
+			}
+		}
+		.brand-description{
+			margin: auto;
+			@include for-size(desktop-up){
+				display: none;
+			}
+			h1,p{
+				margin: 0px;
+				padding:0px;
+			}
+			h1{
+				&.site-title{
+					color: $aml_color_primary;
+					@include for-size(phone-only){
+						font-size: 2rem;
+					}
+					@include for-size(desktop-up){
+						font-size: 23px;					
+					}
+					
+					a{
+						text-decoration: none;
+						color: $aml_color_primary;
+					}
+				}
+			}
+			p{
+				@include for-size(phone-only){
+					font-size: 14px;
+				}
+				@include for-size(desktop-up){
+					font-size:10px;
+				}
+			}
+		}
+	}
+}
+#home-slide{
+	width: 100%;
+	background:url('images/phnom-penh-city-night.jpg');
+	background-repeat:no-repeat;
+	@include for-size(desktop-up){
+		min-height: 540px;
+		background-position: 10% 36%;
+		background-size: cover;
+	}
+}
+#top_breadcrum{
+	width: 100%;
+	padding: 10px 0px;
+	background-color: $aml_color_seconday;
+	@include for-size(phone-only){
+		padding: 15px;
+	}
+	.container{
+		h1,
+		ul.breadcrumbs{
+			width: 100%;
+			position: relative;
+			display: block;
+		}
+		h1{
+			margin: 0px;
+			padding: 10px 0px;
+			font-size: inherit;
+		}
+		.content{
+			color: $aml_color_gray;
+			display: flex;
+			justify-content: space-between;
+			ul{
+				margin: 0px;
+				padding: 0px;
+				&.breadcrumbs{		
+					text-align: right;
+					padding: 10px 0px;			
+					@include for-size(phone-only){
+						overflow-x: auto;
+						overflow-y: hidden;
+						word-break: normal;
+						white-space: nowrap;
+					}
+					li{
+						@include for-size(phone-only){
+							list-style: none;
+							display: inline;
+						}
+						@include for-size(desktop-up){
+							list-style: none;
+							display: inline;
+						}
+						a{
+							text-decoration: none;
+							text-transform: uppercase;
+							color:$aml_color_gray;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+#content{	
+	@include for-size(phone-only){
+		// width: 90%;
+		margin: auto;
+	}
+	#intro-info{
+		width: 100%;
+		@include for-size(phone-only){
+			padding: 15px;
+		}
+		padding: 30px 0px;
+		p{
+			&.intro{
+				text-align: center;
+			}
+		}
+	}
+	#our-mission{
+		width: 100%;
+		background-color: $aml_color_primary;
+		display: block;
+		.mission{
+			color: #ffffff;
+			@include for-size(desktop-up){
+				display: flex;
+				justify-content: space-between;
+			}
+			.image,
+			.short-brief{
+				width:100%;
+				// height: 100vh;
+			}
+			.image{
+				background-image: url('images/img_02-1.jpg');
+				background-size: cover;
+				@include for-size(desktop-up){
+					.image-mission{
+						display: none;
+					}
+				}
+			}
+			.short-brief{
+				@include for-size(phone-only){
+					padding: 15px;
+					padding-bottom: 50px;
+				}
+				@include for-size(desktop-up){
+					padding: 70px 50px;
+					vertical-align: middle;
+					h1{
+						margin: 0px;
+					}
+				}
+
+				h1{
+					text-transform: uppercase;
+				}
+				button{
+					border: none;
+					border-radius: 2px;
+					padding: 10px 35px;
+					font-size: 16px;
+					text-transform: uppercase;
+					cursor: pointer;
+					color: white;
+					background-color: #2196f3;
+					box-shadow: 0 0 4px #999;
+					outline: none;
+				    &:after{
+				    	transition: .3s ease-out;
+				    }
+				    &:active{
+				    	background-color: #6eb9f7;
+					  background-size: 100%;
+					  transition: background 0s;
+				    }
+				    &.btn{
+						background-color: #ffffff;
+						border: none;
+						color: white;
+						padding: 15px 50px;
+						text-align: center;
+						text-decoration: none;
+						display: inline-block;
+						font-size: 16px;
+						border-radius: 30px;
+						box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);					    
+					    a{
+					    	text-transform:uppercase;
+							text-decoration: none;
+							color: $aml_color_primary;
+					    }
+				    }
+				}
+			}
+		}
+	}
+	#our-international-pather{
+		width: 100%;
+		@include for-size(phone-only){
+			padding: 15px;
+		}
+		@include for-size(desktop-up){
+			padding: 70px 0px;
+		}
+		.content{
+			h1{
+				text-transform: uppercase;
+				@include for-size(phone-only){
+					font-size: 24px;
+				}
+				@include for-size(desktop-up){
+					margin: 0px;
+				}
+			}
+		}
+		.grid-image{
+			display: grid;
+			@include for-size(phone-only){
+				grid-template-columns: auto;
+			}
+			@include for-size(iphonex-landscape){
+				grid-template-columns: auto auto;
+			}
+			@include for-size(desktop-up){
+				grid-template-columns: auto auto auto auto;
+			}
+			
+			align-content: center;
+			grid-gap:15px;
+			div{
+				border: 1px solid $aml_color_primary;
+				padding: 20px;
+				font-size: 30px;
+				text-align: center;
+				border-radius: 5px;
+			}
+		}
+	}
+	#scope-of-supply{
+		width: 100%;
+		background-color: $aml_color_primary;
+		color: #ffffff;
+		@include for-size(desktop-up){
+			padding: 70px 0px;
+			margin-bottom: 70px;
+		}
+		.inner{
+			@include for-size(phone-only){
+				display: block;
+				.content{
+					padding: 30px 15px;
+				}
+				.images{
+					background-color: #ffffff;
+				}
+			}
+			@include for-size(iphonex-landscape){
+				display: block;
+			}
+			@include for-size(desktop-up){
+				display: flex;
+				justify-content: space-between;				
+				.content,
+				.images{
+					width: 90%;
+					justify-content: space-between;
+				}
+				.content{
+					padding: 0px 30px 0px 0px;
+				}
+				.images{
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					div{
+						width: 100%;
+						height: 100%;;
+						&:first-child{
+							display: flex;
+							flex-direction: column;
+							justify-content: space-between;
+							div{
+								width: 95%;
+							}
+						}
+					}
+				}
+			}
+			
+			button{
+				@extend %button;
+				border-radius: 30px;
+				color: #ffffff;
+				text-transform: uppercase;
+				background-color: #ffffff;
+				padding: 15px 50px;
+				&:hover{
+					border: 2px solid #ffffff;
+					background-color: $aml_color_primary;
+					color: #ffffff;
+					padding: 13px 48px;
+				}
+				a{
+					text-decoration: none;
+					color: $aml_color_primary;
+					&:hover{
+						color: #ffffff;
+					}					
+				}
+			}
+			
+		}
+	}	
+	
+}
+article{
+	&.page {
+		.show_background_image{
+			@include for-size(desktop-up){
+				width: 100%;			
+				height: 749px;
+			}			
+		}
+		.post-thumbnail{
+			img{
+				@include for-size(desktop-up){
+					display: none;
+				}
+			}
+		}
+		.entry-content{
+			@include for-size(phone-only){
+				padding: 15px;
+			}
+		}
+	}
+}
+h1{
+	&.entry-title{
+		color: $aml_color_primary;
+		@include for-size(phone-only){
+			padding: 0px 15px;
+		}
+	}
+}
+.page{
+	margin: 0px;
+}
+#footer-contact{
+	background-color: $aml_color_primary;
+	color: #ffffff;
+	padding: 50px 0px;
+	width: 100%;
+	overflow: hidden;
+	@include for-size(phone-only){
+		padding: 50px 15px;
+	}
+	.image-block{
+		float: left;
+		margin-right: 30px;
+		@include for-size(phone-only){
+			width: 100%;
+			height: auto;
+			float: unset;
+			margin: auto;
+			img{
+				width: 100%;
+			}
+		}
+	}
+	.block-content{
+		p{
+			&:last-child{
+				button{
+					margin-left: 30px;
+				}
+				@include for-size(phone-only){
+					button{
+						margin: 15px 0px;
+					}
+				}
+			}
+		}
+	}
+	button{
+		@extend %button;
+		border-radius: 30px;
+		color: #ffffff;
+		text-transform: uppercase;
+		background-color: #ffffff;
+		padding: 15px 50px;
+		a{
+			text-decoration: none;
+			color: $aml_color_primary;
+		}
+	}
+}
+
+.site-footer{
+	background-color: $aml_color_seconday;
+	padding:15px 0px;
+	.footer-brand-name,
+	.footer-brand-content{
+		@include for-size(phone-only){
+			width: 90%;
+			float: unset !important;
+			margin: auto !important;
+		}
+	}
+	.footer-brand-name{
+		float: left;
+		margin-right: 30px;
+		h1,p{
+			margin:0px;
+			padding:0px;
+		}
+		h1{
+			@include for-size(phone-only){
+				font-size: 40px;
+			}
+			color: $aml_color_primary;
+			font-size: 28px;
+		}
+		p{
+			@include for-size(phone-only){
+				font-size: 17px;
+			}
+			font-size: 12px;
+		}
+	}
+	.footer-brand-content{
+		float: left;
+		p{
+			span{
+				&:first-child{
+					color: $aml_color_primary;
+				}
+			}
+		}
+	}
+}
+
+button{
+	&[aria-expanded="true"],
+	&[aria-expanded="false"]{
+		float: right;
+		position: absolute;
+		right: 15px;
+		width: unset;
+		z-index: 999;
+	}
+	&[aria-expanded="false"]{
+		position: relative;
+		right: 0px;
+	}
+	&[aria-expanded="true"]{
+		right: 0px;
+	}
+	&.menu-toggle{
+		@include for-size(phone-only){
+			top: -73px;
+			position: absolute;
+			right: 15px;
+		}
+		img{
+			width: 30px;
+		}
+	}
+}
