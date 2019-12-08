@@ -105,6 +105,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 @import "media/media";
 
+
+$aml_asset_path: 'http://amlg.local/wp-content/themes/aml-global';
 %button {
 	background-color: #4CAF50; /* Green */
 	border: none;
@@ -170,14 +172,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 					&.phone{
 						margin-right: 30px;
 						&:before{
-							background: url("images/whatsapp.svg");
+							background: url("#{$aml_asset_path}/images/whatsapp.svg");
 							background-size: 24px;
 							background-repeat: no-repeat;
 						}
 					}
 					&.email{
 						&:before{
-							background: url("images/chat-comment-oval-speech-bubble-with-text-lines.svg");
+							background: url("#{$aml_asset_path}/images/chat-comment-oval-speech-bubble-with-text-lines.svg");
 							background-size: 26px;
 							background-repeat: no-repeat;
 						}
@@ -209,7 +211,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 					display: inline;
 					&.facebook{
 						span{
-							background: url("images/whatsapp.svg");
+							background: url("#{$aml_asset_path}/images/whatsapp.svg");
 							background-size: 26px;
 							background-repeat: no-repeat;
 							content: '';						
@@ -420,7 +422,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 #home-slide{
 	width: 100%;
-	background:url('images/phnom-penh-city-night.jpg');
+	background:url('#{$aml_asset_path}/images/phnom-penh-city-night.jpg');
 	background-repeat:no-repeat;
 	@include for-size(desktop-up){
 		min-height: 540px;
@@ -516,7 +518,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 				// height: 100vh;
 			}
 			.image{
-				background-image: url('images/img_02-1.jpg');
+				background-image: url('#{$aml_asset_path}/images/img_02-1.jpg');
 				background-size: cover;
 				@include for-size(desktop-up){
 					.image-mission{

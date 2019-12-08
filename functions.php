@@ -134,27 +134,6 @@ function aml_global_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'aml_global_scripts' );
 
-
-// jQuery get screen size
-function getScreenSize(){
-    ?>
-    <script>
-        jQuery(document).ready(function($){
-            if ( undefined !== window.jQuery ) {
-                let screenSize = $( window ).height();
-                let mini_head = $('.mini-head').height();
-                let masthead = $('#masthead').height();
-                if($('#home-slide').length){
-                    $('#home-slide').css('height', screenSize + 'px');
-                }
-                $('article.page .show_background_image').css('height', screenSize+'px');
-            }
-        });
-    </script>
-    <?php
-}
-add_action( 'wp_footer', 'getScreenSize', 100 );
-
 /**
  * Implement the Custom Header feature.
  */
@@ -248,7 +227,7 @@ function custom_breadcrumbs() {
     $separator          = '&gt;';
     $breadcrums_id      = 'breadcrumbs';
     $breadcrums_class   = 'breadcrumbs';
-    $home_title         = 'Homepage';
+    $home_title         = get_bloginfo( 'name' );
       
     // If you have any custom post types with custom taxonomies, put the taxonomy name below (e.g. product_cat)
     $custom_taxonomy    = 'product_cat';
@@ -260,10 +239,10 @@ function custom_breadcrumbs() {
     if ( !is_front_page() ) {
        
         // Build the breadcrums
-        echo '<ul id="' . $breadcrums_id . '" class="' . $breadcrums_class . '">';
+        echo '<ul vocab="https://schema.org/" typeof="BreadcrumbList" id="' . $breadcrums_id . '" class="' . $breadcrums_class . '">';
            
         // Home page
-        echo '<li class="item-home"><a class="bread-link bread-home" href="' . get_home_url() . '" title="' . $home_title . '">' . $home_title . '</a></li>';
+        echo '<li property="itemListElement" typeof="ListItem" class="item-home"><a property="item" typeof="WebPage" class="bread-link bread-home" href="' . get_home_url() . '" title="' . $home_title . '"><span property="name">' . $home_title . '</span></a><meta property="position" content="1"></li>';
         echo '<li class="separator separator-home"> ' . $separator . ' </li>';
            
         if ( is_archive() && !is_tax() && !is_category() && !is_tag() ) {
@@ -383,12 +362,12 @@ function custom_breadcrumbs() {
                 echo $parents;
                    
                 // Current page
-                echo '<li class="item-current item-' . $post->ID . '"><strong title="' . get_the_title() . '"> ' . get_the_title() . '</strong></li>';
+                echo '<li property="itemListElement" typeof="ListItem" class="item-current item-' . $post->ID . '"><span property="name" title="' . get_the_title() . '"> ' . get_the_title() . '</span><meta property="position" content="2"></li>';
                    
             } else {
                    
                 // Just display current page if not parents
-                echo '<li class="item-current item-' . $post->ID . '"><strong class="bread-current bread-' . $post->ID . '"> ' . get_the_title() . '</strong></li>';
+                echo '<li property="itemListElement" typeof="ListItem" class="item-current item-' . $post->ID . '"><span property="name" class="bread-current bread-' . $post->ID . '"> ' . get_the_title() . '</span><meta property="position" content="2"></li>';
                    
             }
                

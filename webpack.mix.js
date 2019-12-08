@@ -20,7 +20,8 @@ mix.js([
     'js/main.js',
     'js/navigation.js',
     'js/skip-link-focus-fix.js'
-], 'js/app.js');
+], 'js/app.js')
+.sass('sass/style.scss', 'style.css');
 
 // Full API
 // mix.js(src, output);
