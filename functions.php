@@ -450,3 +450,9 @@ function custom_breadcrumbs() {
     }
        
 }
+
+function add_menu_attributes( $atts, $item, $args ) {
+    $atts['itemprop'] = 'url';
+    return $atts;
+  }
+  add_filter( 'nav_menu_link_attributes', 'add_menu_attributes', 10, 3 );

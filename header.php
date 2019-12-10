@@ -20,7 +20,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'aml-global' ); ?></a>
 	<div class="mini-head">
@@ -69,7 +69,7 @@
 		</div>
 
 	</div>
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">
 		<div class="container">
 			<div class="site-branding">
 				<?php
@@ -87,12 +87,14 @@
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 					<img src="<?php echo get_template_directory_uri().'/images/menu.svg'; ?>" alt="">
 				</button>
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-				?>
+				<span itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					) );
+					?>
+				</span>
 			</nav><!-- #site-navigation -->
 		</div>
 	</header><!-- #masthead -->
