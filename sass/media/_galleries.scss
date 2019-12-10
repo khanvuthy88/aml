@@ -11,13 +11,17 @@
 	.gallery{
 		@extend %gallery-item;
 		grid-template-columns: auto auto;
+		.gallery-item{
+			border: 1px solid $aml_color_primary;
+			border-radius: 5px;
+		}
 	}
 }
 .page-principals-and-partners{
 	.gallery{
 		@extend %gallery-item;
 		@include for-size(phone-only){
-			grid-template-columns: auto auto;
+			grid-template-columns: auto;
 		}
 
 		@include for-size(desktop-up){
@@ -25,11 +29,29 @@
 		}
 		.gallery-item{
 			padding: 0px;
+			border: 1px solid $aml_color_primary;
 			.gallery-icon{
 				padding: 15px;
-				border-bottom: 1px solid $aml_color_primary;
+				@include for-size(phone-only){
+					border-bottom: 1px solid $aml_color_primary;
+				}
+				
+				img{
+					@include for-size(desktop-up){
+						min-height: 253px;
+						max-height: 253px;
+					}
+				}
 			}
 			.gallery-caption{
+				@include for-size(phone-only){
+					height: auto;
+					border: 1xp solid $aml_color_primary;
+				}
+				@include for-size(desktop-up){
+					height: 70px;
+					border-top: 1px solid $aml_color_primary;
+				}
 				a{
 					text-decoration: none;
 					color: $aml_color_gray;
@@ -46,11 +68,10 @@
 }
 
 .gallery-item {
-	border: 1px solid #1579bd;
     padding: 20px;
     font-size: 30px;
     text-align: center;
-	border-radius: 5px;
+	// border-radius: 5px;
 	width: 100%;	
 	.gallery-icon{
 		img{
@@ -74,4 +95,3 @@
 		font-size: 17px;
 	}
 }
-
