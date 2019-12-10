@@ -16,7 +16,8 @@
 	<section id="footer-contact">
 		<div class="container">
 			<div class="image-block">
-				<img src="<?php echo get_template_directory_uri().'/images/logo.jpg'; ?>" alt="">
+				<!-- <img src="<?php echo get_template_directory_uri().'/images/logo.jpg'; ?>" alt=""> -->
+				<img src="<?php echo get_template_directory_uri().'/images/logo-01.jpg'; ?>" alt="">
 			</div>	
 			<div class="block-content">
 				<p>AML Global Pte Ltd (www.aml-global.com) was incorporated in Singapore in 2014 to cater to the expanding business activities in the regional utility markets. We seek to be a reliable and trusted global business partner for our customer and business partners. To work with our principals and business partners by seeking out the best opportunities to market their products and services to the potential customers in these markets.  </p>
