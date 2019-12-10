@@ -1,30 +1,5 @@
 @import "../variables-site/variables-site";
-@mixin for-size($size) {
-	@if $size == phone-only {
-		@media only screen 
-		and (min-device-width : 414px) 
-		and (max-device-width : 736px){@content;}
-	} @else if($size == iphonex-landscape){
-		@media only screen 
-		and (min-device-width : 414px) 
-		and (max-device-width : 736px) 
-		and (orientation : landscape){@content;}
-	} @else if ($size == ipad-portrait){
-		@media only screen 
-		and (min-device-width : 768px) 
-		and (max-device-width : 1024px) 
-		and (orientation : portrait) {@content;}
-	} @else if ($size == ipad-landscape){
-		@media only screen 
-		and (min-device-width : 768px) 
-		and (max-device-width : 1024px) 
-		and (orientation : landscape) {@content;}
-	} @else if $size == desktop-up {
-	  @media (min-width: 1200px) { @content; }
-	} @else if $size == big-desktop-up {
-	  @media (min-width: 1800px) { @content; }
-	}
-}
+@import "../mixins/mixins-master";
 
 
 .main-navigation {
@@ -46,7 +21,7 @@
 	}
 	button{
 		&.menu-toggle{
-			@include for-size(iphonex-landscape){
+			@include for-size(phone-only){
 				display: block;
 			}
 		}
@@ -60,7 +35,7 @@
 		margin: 0;
 		padding-left: 0;
 		&[aria-expanded="false"]{
-			@include for-size(iphonex-landscape){
+			@include for-size(phone-only){
 				display: none !important;
 			}
 		}

@@ -48,11 +48,13 @@
 					</li>
 					<li class="search">
 						<div class="top-search">
-							<div class="inner">
-								<form role="search" method="get" id="searchform"
+							<div class="inner" itemscope itemtype="https://schema.org/WebSite">
+								<meta itemprop="url" content="<?php echo esc_url( home_url( '/' ) ); ?>"/>
+								<form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" role="search" method="get" id="searchform"
 								class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+								<meta itemprop="target" content="https://query.example.com/search?q={s}"/>
 									<div class="search-form-inner">
-										<input type="text" class="search-form-input" value="<?php echo get_search_query(); ?>" name="s" id="s" />
+										<input itemprop="query-input" type="text" class="search-form-input" value="<?php echo get_search_query(); ?>" name="s" id="s" />
 										<button class="search-form-btn search-btn" type="submit">
 											<span>Search</span>
 										</button>
