@@ -52,7 +52,7 @@
 								<meta itemprop="url" content="<?php echo esc_url( home_url( '/' ) ); ?>"/>
 								<form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" role="search" method="get" id="searchform"
 								class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<meta itemprop="target" content="<?php echo esc_url(home_url('/')); ?>/s?q={s}"/>
+								<meta itemprop="target" content="<?php echo esc_url(home_url('/')); ?>s?q={s}"/>
 									<div class="search-form-inner">
 										<input itemprop="query-input" type="text" class="search-form-input" value="<?php echo get_search_query(); ?>" name="s" id="s" />
 										<button class="search-form-btn search-btn" type="submit">
