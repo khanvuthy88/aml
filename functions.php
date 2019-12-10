@@ -455,4 +455,11 @@ function add_menu_attributes( $atts, $item, $args ) {
     $atts['itemprop'] = 'url';
     return $atts;
   }
-  add_filter( 'nav_menu_link_attributes', 'add_menu_attributes', 10, 3 );
+add_filter( 'nav_menu_link_attributes', 'add_menu_attributes', 10, 3 );
+function add_specific_menu_location_atts( $atts, $item, $args ) {
+    $title             = apply_filters('the_title', $item->title, $item->ID);
+    $args->link_before = '<span itemprop="name">';
+    $args->link_after  = '</span>';
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'add_specific_menu_location_atts', 10, 3 );
